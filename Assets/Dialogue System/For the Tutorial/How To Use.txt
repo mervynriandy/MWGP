@@ -1,0 +1,54 @@
+Open the Tutorial Scene for a quick view of the features
+
+"For the Tutorial" Folder is not needed at all in your own project, its for the tutorial scene
+
+Fast Set Up
+
+- Open the prefabs folder in Dialogue System
+- Drag Dialogue Database to scene and tag it "Dialogue Database"
+- Drag Dialogue Canvas to scene
+
+basic set up done
+
+To add a dialogue to a gameobject
+
+- Make sure the gameobject has a box collider with trigger enabled (you can start the dialogue when you are inside the trigger)
+- Add "DialogueWithTrigger" its on the scripts folder or use the add component menu in the gameobject
+- Add "DialogueTriggerContainer" to the same gameobject (if you wont use triggers, you can skip this)
+
+With that all the set up is done
+
+Now i will explain how the system works, "DialogueWithTrigger" has a DialogueID variable, this is how the database will separate each dialogue (all of it, every message is saved)
+each DialogueWithTrigger instance should have a different DialogueID unless you want them to have the same dialogue.
+
+To make a new dialogue simply go to DialogueWithTrigger, set a DialogueID you havent used and press "Add new Dialogue" button, this will add one message with the followin things:
+
+- Dialogue index:                  this is just informative, so you can keep track of the index easily
+- Message Text:                    Here you have to write what you want the npc to say
+- Player Dialog Choices:           Add new adds a new answer for the player to choose, it has 2 fields, the first one is what the player will say, the second one is the dialogue index that option leads to
+- Has Trigger :                    Check if you want to have a trigger on that message
+- Trigger ID :                     This is the index of trigger in the trigger list on Dialogue Trigger Container component,  this will only do something if has trigger is true
+
+Add as many messages as you want and when you are done, press "Update Database" button, this will completely erase the previous information of the current DialogueID in database and save the current information
+After Updating database, go to database gameobject, set a file name to save and press Save To File (Now the file is created and is stored on Streamming Assets folder)
+
+
+
+If you are going to edit a dialogue you made before, you can edit it directly on the database or you can edit in a DialogueWithTrigger and update
+- First go to database gameobject and load the file you want to edit
+- then (edit there) or go to a DialogueWithTrigger, set the id you want to edit and press "Load From Database"
+- edit your stuff and press Update Database
+- go to database and press save to keep your changes
+
+
+Making new triggers
+
+- open scripts/triggers, there is a "SampleTrigger.cs" script there, simply make a new one and copy its structure or duplicate and change class name
+- write whatever you want to happen where the script says
+
+Adding Trigger
+- Just add a trigger you previously made to a gameobject and then drag it to the trigger list in "DialogueTriggerContainer" , thats it, you added a trigger
+- Check trigger once if you want the trigger to run only once
+
+
+If you have any problems with this, find a bug, want to add a feature or just general support, just tell me, (leave me a message on the youtube video, in unity... you get the point xD)
